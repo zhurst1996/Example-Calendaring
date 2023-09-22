@@ -109,19 +109,35 @@ function selectNextCalendarMonth(monthIndex, year, next) {
     createDaysForMonth(currentMonthIndex, currentYear);
 }
 
+function onScrollHandler() {
+    const header = document.getElementsByTagName("nav")[0];
+    const footer = document.getElementsByTagName("footer")[0];
+    if (
+        window.pageYOffset > header.offsetTop
+        && window.pageYOffset < footer.offsetTop - header.offsetHeight
+    ) {
+        header.classList.add("fixed-top");
+        footer.classList.remove("fixed-bottom");
+    } else {
+        footer.classList.add("fixed-bottom");
+        header.classList.remove("fixed-top");
+    }
+}
+
 function bindings() {
-    document.getElementById("month-year").getElementsByClassName('prev')[0].addEventListener("click", function () {
+    document.getElementById("month-year").getElementsByClassName('prev')[0].addEventListener("click", () => {
         selectNextCalendarMonth(currentMonthIndex, currentYear, false);
         createDaysForMonth(currentMonthIndex, currentYear);
     });
-    document.getElementById("month-year").getElementsByClassName('next')[0].addEventListener("click", function () {
+    document.getElementById("month-year").getElementsByClassName('next')[0].addEventListener("click", () => {
         selectNextCalendarMonth(currentMonthIndex, currentYear, true);
         createDaysForMonth(currentMonthIndex, currentYear);
     });
+    window.onscroll = onScrollHandler;
 }
 
 (function () {
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", () => {
         setCalendarMonthYear(currentMonth, currentYear);
         createDaysForMonth(currentMonthIndex, currentYear);
         bindings();
