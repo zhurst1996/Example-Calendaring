@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+        integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="./css/font.css" />
+    <link rel="stylesheet" href="./css/calendar.css" />
+    <!--Custom JS-->
+    <script type="text/javascript" src="./js/calendaring.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", () => {
+            const cookiesModal = new bootstrap.Modal("#cookies-modal", {
+                keyboard: false
+            });
+
+            cookiesModal.show();
+        });
+    </script>
+</head>
+
+<body class="text-dark bg-dark-subtle">
+    <!--Cookies Modal-->
+    <div id="cookies-modal" class="modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-light">
+                    <h5 class="modal-title">We value your privacy</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        We use cookies to enhance your browsing experience, serve personalized ads or content, and
+                        analyze our
+                        traffic. By clicking "Accept All", you consent to our use of cookies.
+                    </p>
+                    <p>
+                        Example Calendaring App works with third party vendors to provide a more customized experience
+                        for you.
+                        To do so, we disclose personally identifiable information about you (specifically, your name and
+                        email
+                        address) to those vendors, though we do not allow them to re-sell or use that information for
+                        their own
+                        purposes.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-outline-dark"><i class="fa-solid fa-gear"
+                                data-bs-dismiss="modal" aria-label="Close"></i>
+                            Customize</button>
+                        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal"
+                            aria-label="Close">Reject All</button>
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal" aria-label="Close">Accept
+                            All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Navigation Header-->
+    <nav class="navbar bg-dark navbar-dark border-bottom border-light">
+        <div class="container-fluid">
+            <a class="navbar-brand mx-1" href="#">Example Calendaring</a>
+            <div class="navbar-text">
+                <i class="fa-solid fa-user"></i>
+                <a class="mx-1" href="#">Sign in</a>
+            </div>
+        </div>
+    </nav>
+
+    <!--Calendar-->
+    <div class="calendar border border-dark">
+        <div class="month bg-dark text-light">
+            <ul id="month-year">
+                <li class="prev pointer">&#10094;</li>
+                <li class="next pointer">&#10095;</li>
+            </ul>
+        </div>
+        <ul class="weekdays bg-dark-subtle">
+            <li><u>Mo</u></li>
+            <li><u>Tu</u></li>
+            <li><u>We</u></li>
+            <li><u>Th</u></li>
+            <li><u>Fr</u></li>
+            <li><u>Sa</u></li>
+            <li><u>Su</u></li>
+        </ul>
+
+        <ul class="days bg-secondary-subtle">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li><span class="active">10</span></li>
+            <li>11</li>
+            <li>12</li>
+            <li>13</li>
+            <li>14</li>
+            <li>15</li>
+            <li>16</li>
+            <li>17</li>
+            <li>18</li>
+            <li>19</li>
+            <li>20</li>
+            <li>21</li>
+            <li>22</li>
+            <li>23</li>
+            <li>24</li>
+            <li>25</li>
+            <li>26</li>
+            <li>27</li>
+            <li>28</li>
+            <li>29</li>
+            <li>30</li>
+            <li>31</li>
+        </ul>
+    </div>
+    <div class="row p-3">
+        <div class="col-lg-3">
+            <div class="card my-1">
+                <div class="card-body">
+                    <h5 class="card-title">Book an Appointment</h5>
+                    <p class="card-text">Click schedule to create an appointment.</p>
+                    <a href="#" class="btn btn-success float-end">Schedule</a>
+                </div>
+            </div>
+            <div class="card my-1 text-light bg-dark">
+                <div class="card-body">
+                    <h5 class="card-title">Read Facility News</h5>
+                    <p class="card-text">This facility has many new events coming up. Check the new blog to see what
+                        the fuss is about!</p>
+                    <a href="#" class="btn btn-primary float-end">GO</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <div class="card my-1 text-light bg-dark">
+                <div class="card-body">
+                    <h5 class="card-title">Contact Us</h5>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="text-white">
+                                <label class="w-100">
+                                    <span>First Name</span>
+                                    <input class="form-control" name="firstName" />
+                                </label>
+                            </div>
+                            <div class="text-white">
+                                <label class="w-100">
+                                    <span>Last Name</span>
+                                    <input class="form-control" name="lastName" />
+                                </label>
+                            </div>
+                            <div class="text-white">
+                                <label class="w-100">
+                                    <span>Phone</span>
+                                    <input class="form-control" name="phone" />
+                                </label>
+                            </div>
+                            <div class="text-white">
+                                <label class="w-100">
+                                    <span>Email</span>
+                                    <input class="form-control" name="email" placeholder="@" />
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                            <h6 class="text-info"><strong>Message</strong></h6>
+                            <div>
+                                <textarea class="w-100" rows="6" cols="50"></textarea>
+                            </div>
+                        </div>
+                        <div class="container mt-3">
+                            <button class="btn btn-info float-end"><i class="fa-solid fa-paper-plane"></i> Send</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Footer-->
+    <footer class="fixed-bottom text-center bg-dark text-light p-2">
+        <div>
+            This Example Calendaring App is a fake calendaring application created by Zachary Hurst for the purposes of
+            expanding his portfolio
+
+            <span class="float-end me-3">Server Status: <i
+                    class="mt-2 fa-regular fa-circle-dot text-success"></i></span>
+        </div>
+    </footer>
+</body>
+
+</html>

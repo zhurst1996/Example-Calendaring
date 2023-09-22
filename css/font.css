@@ -1,0 +1,11 @@
+@import url(https://fonts.googleapis.com/css?family=Red+Hat+Display:400);
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Red Hat Display', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
