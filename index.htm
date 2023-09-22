@@ -22,6 +22,7 @@
     <!--Custom CSS-->
     <link rel="stylesheet" href="./css/font.css" />
     <link rel="stylesheet" href="./css/calendar.css" />
+    <link rel="stylesheet" href="./css/shadow-highlight.css" />
     <!--Custom JS-->
     <script type="text/javascript" src="./js/calendaring.js"></script>
     <script type="text/javascript">
@@ -95,13 +96,13 @@
             </ul>
         </div>
         <ul class="weekdays bg-dark-subtle">
+            <li><u>Su</u></li>
             <li><u>Mo</u></li>
             <li><u>Tu</u></li>
             <li><u>We</u></li>
             <li><u>Th</u></li>
             <li><u>Fr</u></li>
             <li><u>Sa</u></li>
-            <li><u>Su</u></li>
         </ul>
 
         <ul class="days bg-secondary-subtle">
@@ -150,7 +151,7 @@
             <div class="card my-1 text-light bg-dark">
                 <div class="card-body">
                     <h5 class="card-title">Read Facility News</h5>
-                    <p class="card-text">This facility has many new events coming up. Check the new blog to see what
+                    <p class="card-text">This facility has many new events coming up. Check the newest blog to see what
                         the fuss is about!</p>
                     <a href="#" class="btn btn-primary float-end">GO</a>
                 </div>
@@ -159,7 +160,7 @@
         <div class="col-lg-9">
             <div class="card my-1 text-light bg-dark">
                 <div class="card-body">
-                    <h5 class="card-title">Contact Us</h5>
+                    <h5 class="card-title text-info border-bottom border-info p-1">Contact Us</h5>
                     <div class="row">
                         <div class="col-lg-3">
                             <div class="text-white">
@@ -188,9 +189,29 @@
                             </div>
                         </div>
                         <div class="col-lg-9">
-                            <h6 class="text-info"><strong>Message</strong></h6>
                             <div>
-                                <textarea class="w-100" rows="6" cols="50"></textarea>
+                                <h6 class="text-info"><strong>Message</strong></h6>
+                                <textarea class="w-100 form-control" rows="6" cols="50"></textarea>
+                            </div>
+                            <div class="text-white">
+                                <label class="w-100">
+                                    <span>Category</span>
+                                    <select class="form-control">
+                                        <optgroup label="Requests">
+                                            <option>Billing</option>
+                                            <option>Customer Service</option>
+                                            <option>Information Inquiry</option>
+                                            <option>Management</option>
+                                            <option>Product Development</option>
+                                        </optgroup>
+                                        <optgroup label="Complaints">
+                                            <option>Billing</option>
+                                            <option>Customer Service</option>
+                                            <option>Management</option>
+                                            <option>Bug Report</option>
+                                        </optgroup>
+                                    </select>
+                                </label>
                             </div>
                         </div>
                         <div class="container mt-3">

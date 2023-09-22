@@ -19,10 +19,12 @@ var initDate = new Date(),
     currentYear = initDate.getUTCFullYear();
 
 function createDaysForMonth(monthIndex, year) {
-    var d = new Date(year, monthIndex, 0),
-        numberOfDaysInMonth = d.getDate(),
-        monthFirstDayofWeek = d.getDay();
-    
+    var d = new Date(year, monthIndex + 1, 0),
+        numberOfDaysInMonth = d.getDate();
+
+    var d = new Date(year, monthIndex, 1),
+        firstWeekDayofMonth = d.getDay();
+
     const $days = document.getElementsByClassName("days")[0];
 
     if ($days.getElementsByTagName("li").length > 0) {
@@ -31,7 +33,7 @@ function createDaysForMonth(monthIndex, year) {
         }
     }
 
-    for (let i = 1; i <= monthFirstDayofWeek; i++) {
+    for (let i = 1; i <= firstWeekDayofMonth; i++) {
         let $li = document.createElement("li");
 
         $li.classList = "numbered-date placeholder-day";
@@ -40,7 +42,7 @@ function createDaysForMonth(monthIndex, year) {
         $days.appendChild($li);
     }
 
-    for (let i = 1; i <= numberOfDaysInMonth - 1; i++) {
+    for (let i = 1; i <= numberOfDaysInMonth; i++) {
         let $li = document.createElement("li");
 
         if (currentDayIndex == i && currentMonthIndex == initDate.getMonth() && currentYear == initDate.getUTCFullYear()) {
@@ -103,13 +105,11 @@ function selectNextCalendarMonth(monthIndex, year, next) {
     currentMonth = allMonths[currentMonthIndex];
     currentYear = selectedYear;
 
-    console.log(currentMonthIndex, currentMonth, currentYear)
-
     setCalendarMonthYear(currentMonth, currentYear);
     createDaysForMonth(currentMonthIndex, currentYear);
 }
 
-function bindings () {
+function bindings() {
     document.getElementById("month-year").getElementsByClassName('prev')[0].addEventListener("click", function () {
         selectNextCalendarMonth(currentMonthIndex, currentYear, false);
         createDaysForMonth(currentMonthIndex, currentYear);

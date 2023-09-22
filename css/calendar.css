@@ -1,12 +1,12 @@
 ul {list-style-type: none;}
 
 .month {
+  user-select: none;
   padding: 50px 25px;
   width: 100%;
   text-align: center;
 }
 
-/* Month list */
 .month ul {
   margin: 0;
   padding: 0;
@@ -18,19 +18,16 @@ ul {list-style-type: none;}
   letter-spacing: 3px;
 }
 
-/* Previous button inside month header */
 .month .prev {
   float: left;
   padding-top: 10px;
 }
 
-/* Next button */
 .month .next {
   float: right;
   padding-top: 10px;
 }
 
-/* Weekdays (Mon-Sun) */
 .weekdays {
   margin: 0;
   padding: 10px 0;
